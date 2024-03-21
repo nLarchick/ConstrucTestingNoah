@@ -29,7 +29,7 @@ public class testing {
         for(int i=0; i<placeCount; i++)
         {
             long newStartend = System.nanoTime();
-            if (i % 10 == 0){System.out.println("New start array " + i + ", time@ =[" + (double)(newStartend - startTime)/ 1_000_000_000.0 + "]\n");}
+            if (i % 1 == 0){System.out.println("New start array " + i + ", time@ =[" + (double)(newStartend - startTime)/ 1_000_000_000.0 + "]\n");}
 
             long totalDistance = createSortedPlaceArray(unsorted, sorted, distances, distance, radius, i);
 
@@ -104,7 +104,7 @@ public class testing {
         for (int i = 1; i < unsorted.length; i++) {
 
             long sortArrayEnd = System.nanoTime();
-            if ((i % 20) == 0){System.out.println("Sorting array " + i + ", time@ =[" + (double)(sortArrayEnd - startTime)/ 1_000_000_000.0 + "]");}
+            if ((i % 40) == 0){System.out.println("Sorting array " + i + ", time@ =[" + (double)(sortArrayEnd - startTime)/ 1_000_000_000.0 + "]");}
 
             Place previous = sorted[i-1];
             sorted[i] = getNext(previous, unsorted, distances, distance, radius);
@@ -161,7 +161,7 @@ public class testing {
         PlacesAdder adder = new PlacesAdder();
         Places places = new Places();
 
-        for (int i = 0; i < 85; i++) {
+        for (int i = 0; i < 83; i++) {
             adder.AddPlace(places);
         }
 
@@ -171,5 +171,7 @@ public class testing {
         double elapsedTimeInSeconds = (double) totalTime / 1_000_000_000.0;
 
         System.out.println("Total run time =[" + elapsedTimeInSeconds + "]\n");
+
+        System.out.println("Number of places (after sort) =[" + placesSorted.size() + "]");
     }
 }
