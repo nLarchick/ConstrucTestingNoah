@@ -157,18 +157,19 @@ public class testing {
     // time is checked for each new start loop
     // and for each time the places is actually sorted
     public static void main(String[] args) {
-        testing test = new testing();
+        testingV2 test = new testingV2();
         PlacesAdder adder = new PlacesAdder();
         Places places = new Places();
 
-        for (int i = 0; i < 83; i++) {
+        for (int i = 0; i < 96; i++) {
             adder.AddPlace(places);
         }
 
         System.out.println("Number of places =[" + places.size() + "]\n");
         Places placesSorted = test.construct(places, 3959, 1);
 
-        double elapsedTimeInSeconds = (double) totalTime / 1_000_000_000.0;
+        long totTime = (test.finishTime - test.startTime);
+        double elapsedTimeInSeconds = (double) totTime / 1_000_000_000.0;
 
         System.out.println("Total run time =[" + elapsedTimeInSeconds + "]\n");
 
